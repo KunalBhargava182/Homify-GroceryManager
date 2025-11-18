@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.Homify" parent="Base.Theme.Homify" />
+
+
+    <style name="PopupMenu.SlateBlue" parent="Widget.MaterialComponents.PopupMenu">
+        <item name="android:textColor">#37474F</item>
+        <item name="android:popupBackground">@drawable/bg_popup_menu</item>
+        <item name="overlapAnchor">true</item>
+    </style>
 </resources>

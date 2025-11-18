@@ -4,78 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/bg_clean_slate"
     tools:context=".ui.MainActivity">
 
-    <!-- ✅ Toolbar with logo and centered title -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#C5B4FF"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        app:contentInsetStart="0dp"
-        app:elevation="4dp"
+        android:background="#01579B"
+        android:elevation="6dp"
         app:titleCentered="true">
 
-
-        <!-- Center: app title -->
         <TextView
             android:id="@+id/tvToolbarTitle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Homify"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.05" />
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <!-- RecyclerView for Grocery List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:padding="8dp"
+        android:clipToPadding="false"
+        android:padding="12dp"
+        android:paddingBottom="88dp"
         tools:listitem="@layout/item_grocery" />
 
-    <!-- Empty State -->
     <LinearLayout
         android:id="@+id/emptyStateLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:contentDescription="Empty List"
-            android:src="@drawable/ic_empty_box" />
+            android:src="@drawable/ic_empty_box"
+            app:tint="#90A4AE" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Your list is empty"
+            android:textColor="#37474F"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="No groceries added yet!"
-            android:textColor="@color/black"
+            android:text="Add groceries to get started"
+            android:textColor="#78909C"
             android:textSize="16sp" />
     </LinearLayout>
 
-    <!-- Floating Action Button (bottom-right corner) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
         android:layout_margin="24dp"
         android:contentDescription="Add Item"
         android:src="@drawable/ic_add"
-        app:backgroundTint="#C5B4FF"
-        app:layout_anchor="@id/recyclerViewItems"
-        app:layout_anchorGravity="bottom|end"
+        app:backgroundTint="#0288D1"
+        app:borderWidth="0dp"
+        app:elevation="8dp"
         app:tint="@color/white" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

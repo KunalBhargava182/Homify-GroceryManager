@@ -1,5 +1,7 @@
 package com.example.homify.ui.adapter
 
+import android.os.Build
+import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,8 +54,17 @@ class GroceryAdapter(
 
                 // Options popup
                 ivOptions.setOnClickListener {
-                    val popup = PopupMenu(root.context, ivOptions)
+                    // ✅ Use a wrapper to apply the Slate/Blue style
+                    val wrapper = ContextThemeWrapper(root.context, R.style.PopupMenu_SlateBlue)
+                    val popup = PopupMenu(wrapper, ivOptions)
+
                     popup.menuInflater.inflate(R.menu.menu_item_options, popup.menu)
+
+                    // Optional: Force icons to show (if you have icons in the menu)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        popup.setForceShowIcon(true)
+                    }
+
                     popup.setOnMenuItemClickListener {
                         when (it.itemId) {
                             R.id.menu_edit -> onEditClicked(item)
@@ -120,7 +131,7 @@ class GroceryAdapter(
 
                     when {
                         daysLeft < 0 -> {
-                            chipExpectedFinish.text = "Likely finished"
+                            chipExpectedFinish.text = "finished"
                             chipExpectedFinish.visibility = View.VISIBLE
                             chipExpectedFinish.contentDescription = "Item likely finished"
                         }
