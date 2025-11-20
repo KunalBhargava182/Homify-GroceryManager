@@ -30,4 +30,14 @@ Built using **Kotlin**, **XML**, and **Room Database**, it helps users manage gr
 
 ### 🖼️ **App Flow**
 **Home → Add Item → Smart Reminder → Notification Alert**
+---
+### ScreenShots 
+<img width="540" height="1200" alt="image" src="https://github.com/user-attachments/assets/ed4266d1-2620-4149-a82f-a2703cb2991f" />
+<img width="540" height="1200" alt="image" src="https://github.com/user-attachments/assets/2b25163e-4381-4a9a-951f-c68e4bbc243b" />
+<img width="540" height="1200" alt="image" src="https://github.com/user-attachments/assets/16e40da0-6863-4a2b-8682-54521e44d388" />
+ <img width="540" height="1200" alt="image" src="https://github.com/user-attachments/assets/2ef6762f-7e59-43fb-90ba-5a3c716e3db2" />
+
+
+
+
 
