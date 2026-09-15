@@ -37,7 +37,20 @@ Built using **Kotlin**, **XML**, and **Room Database**, it helps users manage gr
 <img width="540" height="1200" alt="image" src="https://github.com/user-attachments/assets/16e40da0-6863-4a2b-8682-54521e44d388" />
  <img width="540" height="1200" alt="image" src="https://github.com/user-attachments/assets/2ef6762f-7e59-43fb-90ba-5a3c716e3db2" />
 
+---
 
+## Technical decisions
 
+**WorkManager over AlarmManager.** Expiry reminders have to survive reboots and Doze,
+and they do not need to fire at an exact second. WorkManager handles the persistence
+and the battery constraints; AlarmManager would have meant handling both myself.
 
+**Room over raw SQLite.** The app is offline-first, so every read hits the local
+database. Room gives compile-time query checking and removes the cursor boilerplate,
+which matters more than the small overhead when the queries are this simple.
 
+**MVVM.** State survives configuration changes without extra work, and the reminder
+scheduling stays out of the UI layer where it would be hard to test.
+
+**No backend.** Nothing here needs a server. Adding one would mean accounts, sync and
+a privacy story for a grocery list, in exchange for nothing the user asked for.
